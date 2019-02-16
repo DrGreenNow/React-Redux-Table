@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+table {
+	margin: 20px;
+	border: 2px double black; 
+    border-collapse: collapse;
+}
+
+thead {
+	background: #ccc;
+}
+
+td {
+	padding: 25px;
+	border: 2px double black;
+	text-align: center;
+}
+
+input {
+	float: left;
+	margin: 0 15px;
+}
+
+.form-control {
+	display: block;
+	height: 30px;
+	width: 56%;
+	padding: 6px 12px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin: 15px;
+}
+
+.wrapper {
+	margin-right: 15px;
+	margin-left: 15px;
+}
+
+.thePointer {
+	cursor: pointer;
+}
