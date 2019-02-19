@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import getSortedCompanies from '../selectors/companies';
+import getSortedCompanies from '../selectors/balance';
 
 let OurBody = ({ filteredArr }) => {
 
@@ -14,7 +14,13 @@ let OurBody = ({ filteredArr }) => {
           <td>{element.registered}</td>
           <td>{element.address.country}</td>
           <td>{element.employers.length}</td>
-          <td>--</td>
+          <td>
+            {element.employers.map(element =>
+              <p key={element.name}>
+                {element.name}
+              </p>
+            )}
+          </td>
         </tr>
       )}
     </tbody>
@@ -23,8 +29,10 @@ let OurBody = ({ filteredArr }) => {
 
 const mapStateToProps = (state) => {
   return {
-    filteredArr: getSortedCompanies(state.json, state.sortCompany)
+    filteredArr: getSortedCompanies(state.ourData.json, state.ourSort.sortCompany, 
+      state.ourSort.sortBalance, state.ourData.action)
   };
+
 }
 
 export default connect(mapStateToProps)(OurBody);

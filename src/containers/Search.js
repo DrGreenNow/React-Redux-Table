@@ -1,30 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default class SearchBar extends React.Component {
-    render() {
-        return (
-          <form>
-            <input type="text" placeholder="Search for company" className='form-control' onChange={ this.search.bind(this) } />
-          </form>
-        );
-    }
+import { search } from '../actions';
 
-    search(e){
-        let word = new RegExp('^' + e.target.value, 'i'),
-        filteredArr;
-        if(word.length !==0) {
-            filteredArr = this.props.data.hits.filter( (item) => {
-                return word.test( item.company );
-            });
+let SearchBar = ({ dispatch }) => (
+  <form>
+    <input 
+      type="text" 
+      placeholder="Search for company" 
+      className='form-control' 
+      onChange={(e) => {
+        dispatch(search(e.target.value));
+      }}
+    />
+  </form>
+)
 
-            this.props.newState({
-                filteredArr: filteredArr
-            });
-        } else {
-            this.props.newState({
-                filteredArr: this.props.data.hits
-            });
-        }
-    } 
-}
+const mapStateToProps = (state) => ({});
+
+export default connect(mapStateToProps)(SearchBar);
 

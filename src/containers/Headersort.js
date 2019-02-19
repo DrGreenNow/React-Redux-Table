@@ -1,13 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { sortCompany } from '../actions'
+import { sortCompany, sortBalance } from '../actions';
 
 let Headersort = ({ dispatch }) => (
 	<thead>
 		<tr>
-			<td onClick={() => {dispatch(sortCompany());}}>Company</td>
-			<td>Balance</td>
+			<td 
+			  className="thePointer"
+			  onClick={() => {dispatch(sortCompany());}} 
+			>
+			  Company
+			</td>
+			<td
+			  className="thePointer"
+			  onClick={() => {dispatch(sortBalance());}}
+			>
+			  Balance
+			</td>
 			<td>Registered</td>
 			<td>Country</td>
 			<td>Number of employers</td>
@@ -16,8 +26,6 @@ let Headersort = ({ dispatch }) => (
 	</thead>
 );
 
-const mapStateToProps = (state) => ({
-	Arr: state.json,
-  })
+const mapStateToProps = (state) => ({});
 
-export default connect(mapStateToProps)(Headersort);  
+export default connect(mapStateToProps)(Headersort);

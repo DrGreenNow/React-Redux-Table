@@ -7,7 +7,8 @@ body {
 table {
 	margin: 20px;
 	border: 2px double black; 
-    border-collapse: collapse;
+	border-collapse: collapse;
+	width: 75%;
 }
 
 thead {
@@ -28,12 +29,12 @@ input {
 .form-control {
 	display: block;
 	height: 30px;
-	width: 56%;
+	width: 73%;
 	padding: 6px 12px;
 	font-size: 14px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
-	margin: 15px;
+	margin: 20px;
 }
 
 .wrapper {

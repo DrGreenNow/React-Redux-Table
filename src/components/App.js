@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { fetchPosts } from '../actions';
 import OurBody from '../containers/OurBody';
 import Headersort from '../containers/Headersort';
+import SearchBar from '../containers/Search';
 import '../css/index.css';
 
 
@@ -26,6 +27,7 @@ class App extends React.Component {
 
     return (
     <div>
+      <SearchBar />
       <table>
         <Headersort />
         <OurBody />
@@ -38,14 +40,8 @@ class App extends React.Component {
 const mapStateToProps = state => ({
   loading: state.loading,
   error: state.error
-})
+});
 
-// const mapDispatchToProps = { getPosts: fetchPosts }
-
-App = connect(
-  mapStateToProps,
-  // mapDispatchToProps
-  null
-)(App)
+App = connect(mapStateToProps)(App);
   
 export default App;
