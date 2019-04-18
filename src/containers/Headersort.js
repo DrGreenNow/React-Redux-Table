@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { sortCompany, sortBalance } from '../actions';
 
-let Headersort = ({ dispatch }) => (
+const headerSort = ({ dispatch }) => (
 	<thead>
 		<tr>
 			<td 
@@ -28,4 +28,4 @@ let Headersort = ({ dispatch }) => (
 
 const mapStateToProps = (state) => ({});
 
-export default connect(mapStateToProps)(Headersort);
+export default connect(mapStateToProps)(headerSort);

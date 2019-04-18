@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { search } from '../actions';
 
-let SearchBar = ({ dispatch }) => (
+const searchBar = ({ dispatch }) => (
   <form>
     <input 
       type="text" 
@@ -18,5 +18,5 @@ let SearchBar = ({ dispatch }) => (
 
 const mapStateToProps = (state) => ({});
 
-export default connect(mapStateToProps)(SearchBar);
+export default connect(mapStateToProps)(searchBar);
 

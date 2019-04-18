@@ -64,41 +64,25 @@ export default (json, sortCompany, sortBalance, action) => {
      
     if (sortCompany) {
         return [...json].sort((a, b) => {
-            if (a.company.toLowerCase() > b.company.toLowerCase()) {
-                return 1;
-            } else {
-                return -1;
-            }
+            return (a.company.toLowerCase() > b.company.toLowerCase()) ? 1 : -1;
         });
     } 
 
     if (sortCompany===false){
         return [...json].sort((a, b) => {
-            if (a.company.toLowerCase() < b.company.toLowerCase()) {
-                return 1;
-            } else {
-                return -1;
-            }
-        })
+            return (a.company.toLowerCase() < b.company.toLowerCase()) ? 1 : -1;
+        });
     } 
 
     if (sortBalance){
         return [...json].sort((a, b) => {
-            if (a.balance > b.balance) {
-                return 1;
-            } else {
-                return -1;
-            }
+            return (a.balance > b.balance) ? 1 : -1;
         });
     }
 
     if(sortBalance===false){
         return [...json].sort((a, b) => {
-            if (a.balance < b.balance) {
-                return 1;
-            } else {
-                return -1;
-            }
+            return (a.balance < b.balance) ? 1 : -1;
         });
     }
 };
