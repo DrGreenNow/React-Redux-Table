@@ -2,9 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
-import getSortedCompanies from "../../selectors/balance";
-import './OurBody.css';
-
 const ourBody = props => {
   const paginate = (items, pageNumber, pageSize) => {
     const startIndex = (pageNumber - 1) * pageSize;
@@ -14,11 +11,13 @@ const ourBody = props => {
       .value();
   };
 
-  const renderdArr = paginate(
-    props.filteredArr,
-    props.currentPage,
-    props.pageSize
+  const sorted = _.orderBy(
+    props.ourData,
+    [props.sortColumn.path],
+    [props.sortColumn.order]
   );
+
+  const renderdArr = paginate(sorted, props.currentPage, props.pageSize);
 
   return (
     <tbody>
@@ -31,7 +30,7 @@ const ourBody = props => {
           <td>{element.employers.length}</td>
           <td>
             {element.employers.map(element => (
-              <p key={element.name} className="TableText">{element.name}</p>
+              <p key={element.name}>{element.name}</p>
             ))}
           </td>
         </tr>
@@ -42,14 +41,10 @@ const ourBody = props => {
 
 const mapStateToProps = state => {
   return {
-    filteredArr: getSortedCompanies(
-      state.ourData.json,
-      state.ourSort.sortCompany,
-      state.ourSort.sortBalance,
-      state.ourData.action
-    ),
+    ourData: state.ourData.json,
     pageSize: state.ourPagination.pageSize,
-    currentPage: state.ourPagination.currentPage
+    currentPage: state.ourPagination.currentPage,
+    sortColumn: state.ourSort.sortColumn
   };
 };
 

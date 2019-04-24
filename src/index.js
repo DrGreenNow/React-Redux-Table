@@ -9,9 +9,9 @@ import './index.css';
 
 // console.log(store.getState());
 
-// store.subscribe(() => {
-//   console.log('store updated', store.getState()); 
-// });
+store.subscribe(() => {
+  console.log('store updated', store.getState()); 
+});
 
 ReactDOM.render(
   <Provider store={store}>

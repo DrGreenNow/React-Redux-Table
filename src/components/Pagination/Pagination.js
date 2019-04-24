@@ -2,15 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
-import getSortedCompanies from "../../selectors/balance";
 import { handlePageChange } from "../../store/actions/index";
 import "./Pagination.css";
 
 const Pagination = props => {
-  const pagesCount = Math.ceil(props.filteredArr.length / props.pageSize);
+  const pagesCount = Math.ceil(props.ourData.length / props.pageSize);
   if (pagesCount === 1) return null;
   const pages = _.range(1, pagesCount + 1);
-  let hrefLink = '#';
+  let hrefLink = "#";
 
   return (
     <nav>
@@ -38,12 +37,7 @@ const Pagination = props => {
 
 const mapStateToProps = state => {
   return {
-    filteredArr: getSortedCompanies(
-      state.ourData.json,
-      state.ourSort.sortCompany,
-      state.ourSort.sortBalance,
-      state.ourData.action
-    ),
+    ourData: state.ourData.json,
     pageSize: state.ourPagination.pageSize,
     currentPage: state.ourPagination.currentPage
   };

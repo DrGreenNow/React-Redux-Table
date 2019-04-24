@@ -1,10 +1,14 @@
 export const REQUEST_DATA = 'REQUEST_DATA';
 export const RECEIVE_DATA = 'RECEIVE_DATA';
 export const FAILURE_DATA = 'FAILURE_DATA';
-export const SORT_COMPANY = 'SORT_NAME';
-export const SORT_BALANCE = 'SORT_BALANCE';
 export const SEARCH = 'SEARCH';
 export const HANDLEPAGECHANGE = 'HANDLEPAGECHANGE';
+export const ON_SORT = 'ON_SORT';
+
+export const onSort = (path) => ({
+  type: ON_SORT,
+  path
+});
 
 export const handlePageChange = page => ({
   type: HANDLEPAGECHANGE,
@@ -23,14 +27,6 @@ export const receivedData = json => ({
 export const failureData = error => ({
   type: FAILURE_DATA,
   error
-});
-
-export const sortCompany = () => ({
-  type: SORT_COMPANY
-});
-
-export const sortBalance = () => ({
-  type: SORT_BALANCE
 });
 
 export const search = (value) => ({
