@@ -4,6 +4,12 @@ export const FAILURE_DATA = 'FAILURE_DATA';
 export const SORT_COMPANY = 'SORT_NAME';
 export const SORT_BALANCE = 'SORT_BALANCE';
 export const SEARCH = 'SEARCH';
+export const HANDLEPAGECHANGE = 'HANDLEPAGECHANGE';
+
+export const handlePageChange = page => ({
+  type: HANDLEPAGECHANGE,
+  page
+})
 
 export const requestData = () => ({
   type: REQUEST_DATA
@@ -41,7 +47,7 @@ export function fetchPosts() {
         error => console.log('An error occurred.', error),
       )
       .then((json) => {
-        dispatch(receivedData(json))
+        dispatch(receivedData(json));
       },
     );
   };

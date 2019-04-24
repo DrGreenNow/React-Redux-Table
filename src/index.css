@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+thead {
+  background: #ccc;
+}
+
+td {
+  padding: 25px;
+  border: 2px double black;
+  text-align: center;
+}
+
+form {
+  margin: 30px auto;
+}
+
+input {
+  margin: auto;
+}
+
+.form-control {
+  display: block;
+  height: 30px;
+  width: 80%;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: auto;
+}
+
+.wrapper {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.thePointer {
+  cursor: pointer;
+}

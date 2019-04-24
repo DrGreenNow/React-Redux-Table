@@ -1,12 +1,13 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import ourData from './mainJsonReducer';
-import ourSort from './sortDataReducer';
-
+import ourData from "./mainJsonReducer";
+import ourSort from "./sortDataReducer";
+import ourPagination from "./paginationReducer";
 
 const reducer = combineReducers({
   ourData,
-  ourSort
+  ourSort,
+  ourPagination
 });
 
 export default reducer;

@@ -1,40 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 
 import { fetchPosts } from './actions';
-import OurBody from './containers/OurBody';
-import Headersort from './containers/Headersort';
-import SearchBar from './containers/Search';
-import './css/index.css';
+import OurBody from './components/OurBody';
+import Headersort from './components/Headersort';
+import SearchBar from './components/Input';
+import Pagination from './components/Pagination';
+import './App.css';
 
+const app = props => {
 
-class App extends React.Component {
+  useEffect(() => {
+    props.dispatch(fetchPosts());
+  }, []);
 
-  componentDidMount() {
-    this.props.dispatch(fetchPosts());
-  }
+  const { loading, error } = props;
 
-  render() {
-    const { loading, error } = this.props;
-
-    if (error) {
-      return <div>Error! {error.message}</div>;
-    }
+  if (error) {
+    return <div>Error! {error.message}</div>;
+  };
   
-    if (loading) {
-      return <div>Loading...</div>;
-    }
+  if (loading) {
+    return <div>Loading...</div>;
+  };
 
-    return (
-    <div>
-      <SearchBar />
-      <table>
-        <Headersort />
-        <OurBody />
-      </table>
-    </div>
-    )
-  }
+  return (
+  <div>
+    <SearchBar />
+    <table>
+      <Headersort />
+      <OurBody />
+    </table>
+    <Pagination />
+  </div>
+  );
 }
   
 const mapStateToProps = state => ({
@@ -42,6 +41,4 @@ const mapStateToProps = state => ({
   error: state.error
 });
 
-App = connect(mapStateToProps)(App);
-  
-export default App;
+export default connect(mapStateToProps)(app);
