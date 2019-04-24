@@ -1,0 +1,17 @@
+form {
+  margin: 30px auto;
+}
+
+input {
+  margin: auto;
+}
+
+.form-control {
+  display: block;
+  height: 30px;
+  width: 80%;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: auto;
+}

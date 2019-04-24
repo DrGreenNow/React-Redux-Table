@@ -1,0 +1,13 @@
+thead {
+  background: #ccc;
+}
+
+td {
+  padding: 25px;
+  border: 2px double black;
+  text-align: center;
+}
+
+.thePointer {
+  cursor: pointer;
+}

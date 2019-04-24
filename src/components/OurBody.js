@@ -13,7 +13,7 @@ const ourBody = props => {
       .value();
   };
 
-  const lastFilteredArr = paginate(
+  const renderdArr = paginate(
     props.filteredArr,
     props.currentPage,
     props.pageSize
@@ -21,7 +21,7 @@ const ourBody = props => {
 
   return (
     <tbody>
-      {lastFilteredArr.map(element => (
+      {renderdArr.map(element => (
         <tr key={element._id}>
           <td>{element.company}</td>
           <td>{element.balance}</td>

@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 
-import { fetchPosts } from './actions';
+import { fetchPosts } from './store/actions';
 import OurBody from './components/OurBody';
-import Headersort from './components/Headersort';
-import SearchBar from './components/Input';
-import Pagination from './components/Pagination';
+import Headersort from './components/HeaderSort/HeaderSort';
+import SearchBar from './components/Input/Input';
+import Pagination from './components/Pagination/Pagination';
 import './App.css';
 
 const app = props => {

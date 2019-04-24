@@ -9,7 +9,7 @@ export const HANDLEPAGECHANGE = 'HANDLEPAGECHANGE';
 export const handlePageChange = page => ({
   type: HANDLEPAGECHANGE,
   page
-})
+});
 
 export const requestData = () => ({
   type: REQUEST_DATA
@@ -22,23 +22,23 @@ export const receivedData = json => ({
 
 export const failureData = error => ({
   type: FAILURE_DATA,
-  payload: error
+  error
 });
 
 export const sortCompany = () => ({
   type: SORT_COMPANY
-})
+});
 
 export const sortBalance = () => ({
   type: SORT_BALANCE
-})
+});
 
 export const search = (value) => ({
   type: SEARCH,
   value
-})
+});
 
-export function fetchPosts() {
+export const fetchPosts = () => {
   return dispatch => {
     dispatch(requestData());
     return fetch(`http://www.json-generator.com/api/json/get/ceRHciXcVu?indent=2`)
@@ -51,7 +51,7 @@ export function fetchPosts() {
       },
     );
   };
-}
+};
 
 
 

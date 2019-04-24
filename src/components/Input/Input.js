@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { search } from "../actions";
+import { search } from "../../store/actions";
+import './Input.css';
 
 const searchBar = props => (
   <form>

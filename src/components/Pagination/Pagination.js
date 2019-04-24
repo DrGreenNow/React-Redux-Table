@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
-import getSortedCompanies from "../selectors/balance";
-import { handlePageChange } from "../actions/index";
-import './Pagination.css';
+import getSortedCompanies from "../../selectors/balance";
+import { handlePageChange } from "../../store/actions/index";
+import "./Pagination.css";
 
 const Pagination = props => {
   const pagesCount = Math.ceil(props.filteredArr.length / props.pageSize);
