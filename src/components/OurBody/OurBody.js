@@ -2,7 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
-import getSortedCompanies from "../selectors/balance";
+import getSortedCompanies from "../../selectors/balance";
+import './OurBody.css';
 
 const ourBody = props => {
   const paginate = (items, pageNumber, pageSize) => {
@@ -30,7 +31,7 @@ const ourBody = props => {
           <td>{element.employers.length}</td>
           <td>
             {element.employers.map(element => (
-              <p key={element.name}>{element.name}</p>
+              <p key={element.name} className="TableText">{element.name}</p>
             ))}
           </td>
         </tr>

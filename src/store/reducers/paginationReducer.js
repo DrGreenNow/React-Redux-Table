@@ -2,7 +2,7 @@ import { HANDLEPAGECHANGE } from "../actions";
 
 const handlePageChangeReducerState = {
   pageSize: 2,
-  currenPage: 1
+  currentPage: 1
 };
 
 export default (state = handlePageChangeReducerState, action) => {

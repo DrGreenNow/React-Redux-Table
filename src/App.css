@@ -2,5 +2,10 @@ table {
   margin: auto;
   border: 2px double black;
   border-collapse: collapse;
+  width: 100%;
+}
+
+.wrapper {
   width: 80%;
+  margin: auto;
 }

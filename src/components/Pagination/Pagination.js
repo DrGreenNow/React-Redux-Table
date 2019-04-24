@@ -10,6 +10,7 @@ const Pagination = props => {
   const pagesCount = Math.ceil(props.filteredArr.length / props.pageSize);
   if (pagesCount === 1) return null;
   const pages = _.range(1, pagesCount + 1);
+  let hrefLink = '#';
 
   return (
     <nav>
@@ -23,7 +24,7 @@ const Pagination = props => {
           >
             <a
               className="page-link"
-              href="#"
+              href={hrefLink}
               onClick={() => props.onPageChange(page)}
             >
               {page}
