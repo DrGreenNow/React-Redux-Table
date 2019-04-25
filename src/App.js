@@ -13,18 +13,16 @@ const app = props => {
     props.dispatch(fetchPosts());
   }, []);
 
-  const { loading, error } = props;
-
-  if (error) {
-    return <div>Error! {error.message}</div>;
+  if (props.error) {
+    return <div>Error! {props.error.message}</div>;
   }
 
-  if (loading) {
+  if (props.loading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className='wrapper'>
+    <div className="wrapper">
       <SearchBar />
       <table>
         <Headersort />

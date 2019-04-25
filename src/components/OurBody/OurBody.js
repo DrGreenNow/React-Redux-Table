@@ -2,6 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
+  // if(action !=='') {
+  //   var word = new RegExp('^' + action, 'i');
+  //   let filteredArr = [];
+
+  //   filteredData = ourData.filter( (item) => {
+  //       return word.test( item.company );
+  //   });
+
 const ourBody = props => {
   const paginate = (items, pageNumber, pageSize) => {
     const startIndex = (pageNumber - 1) * pageSize;
@@ -16,6 +24,8 @@ const ourBody = props => {
     [props.sortColumn.path],
     [props.sortColumn.order]
   );
+
+
 
   const renderdArr = paginate(sorted, props.currentPage, props.pageSize);
 
@@ -44,7 +54,8 @@ const mapStateToProps = state => {
     ourData: state.ourData.json,
     pageSize: state.ourPagination.pageSize,
     currentPage: state.ourPagination.currentPage,
-    sortColumn: state.ourSort.sortColumn
+    sortColumn: state.ourSort.sortColumn,
+    action: state.ourData.action
   };
 };
 
