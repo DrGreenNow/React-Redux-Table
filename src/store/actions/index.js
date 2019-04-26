@@ -4,6 +4,7 @@ export const FAILURE_DATA = "FAILURE_DATA";
 export const SEARCH = "SEARCH";
 export const HANDLEPAGECHANGE = "HANDLEPAGECHANGE";
 export const ON_SORT = "ON_SORT";
+export const PAGINATED_JSON = "PAGINATED_JSON";
 
 export const requestData = () => ({
   type: REQUEST_DATA
@@ -32,6 +33,11 @@ export const handlePageChange = page => ({
 export const onSort = path => ({
   type: ON_SORT,
   path
+});
+
+export const paginatedJson = paginatedJson => ({
+  type: PAGINATED_JSON,
+  paginatedJson
 });
 
 export const fetchPosts = () => {

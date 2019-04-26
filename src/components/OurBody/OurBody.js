@@ -1,37 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import _ from "lodash";
-
-  // if(action !=='') {
-  //   var word = new RegExp('^' + action, 'i');
-  //   let filteredArr = [];
-
-  //   filteredData = ourData.filter( (item) => {
-  //       return word.test( item.company );
-  //   });
 
 const ourBody = props => {
-  const paginate = (items, pageNumber, pageSize) => {
-    const startIndex = (pageNumber - 1) * pageSize;
-    return _(items)
-      .slice(startIndex)
-      .take(pageSize)
-      .value();
-  };
-
-  const sorted = _.orderBy(
-    props.ourData,
-    [props.sortColumn.path],
-    [props.sortColumn.order]
-  );
-
-
-
-  const renderdArr = paginate(sorted, props.currentPage, props.pageSize);
-
   return (
     <tbody>
-      {renderdArr.map(element => (
+      {props.json.map(element => (
         <tr key={element._id}>
           <td>{element.company}</td>
           <td>{element.balance}</td>
@@ -51,11 +24,7 @@ const ourBody = props => {
 
 const mapStateToProps = state => {
   return {
-    ourData: state.ourData.json,
-    pageSize: state.ourPagination.pageSize,
-    currentPage: state.ourPagination.currentPage,
-    sortColumn: state.ourSort.sortColumn,
-    action: state.ourData.action
+    json: state.ourPagination.paginatedJson
   };
 };
 
