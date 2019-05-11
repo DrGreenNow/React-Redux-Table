@@ -12,7 +12,7 @@ const Pagination = props => {
   let hrefLink = "#";
 
   return (
-    <nav>
+    <nav className="d-flex justify-content-center">
       <ul className="pagination">
         {pages.map(page => (
           <li

@@ -6,9 +6,10 @@ import { fetchPosts } from "./store/actions";
 import { paginatedJson } from "./store/actions";
 import OurBody from "./components/OurBody/OurBody";
 import Headersort from "./components/HeaderSort/HeaderSort";
-import SearchBar from "./components/Input/Input";
 import Pagination from "./components/Pagination/Pagination";
+import NavBar from "./components/Navbar/NavBar";
 import "./App.css";
+import Footer from "./components/Footer/Footer";
 
 const app = props => {
   useEffect(() => {
@@ -52,14 +53,17 @@ const app = props => {
   }
 
   return (
-    <div className="wrapper">
-      <SearchBar />
-      <table>
-        <Headersort />
-        <OurBody />
-      </table>
-      <Pagination />
-    </div>
+    <React.Fragment>
+      <NavBar />
+      <div className="wrapper">
+        <table>
+          <Headersort />
+          <OurBody />
+        </table>
+        <Pagination />
+      </div>
+      <Footer />
+    </React.Fragment>
   );
 };
 
@@ -80,4 +84,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(app);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(app);
