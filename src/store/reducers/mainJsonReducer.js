@@ -1,10 +1,9 @@
-import { REQUEST_DATA, RECEIVE_DATA, FAILURE_DATA, SEARCH } from "../actions";
+import { REQUEST_DATA, RECEIVE_DATA, FAILURE_DATA } from "../actions";
 
 const initialReducerState = {
   json: [],
   loading: false,
-  error: null,
-  action: ""
+  error: null
 };
 
 export default (state = initialReducerState, action) => {
@@ -29,12 +28,6 @@ export default (state = initialReducerState, action) => {
         loading: false,
         error: action.payload.error,
         json: []
-      };
-
-    case SEARCH:
-      return {
-        ...state,
-        action: action.value
       };
 
     default:

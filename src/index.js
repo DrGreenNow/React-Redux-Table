@@ -7,7 +7,7 @@ import App from "./App";
 import store from './store/store';
 import './index.css';
 
-// console.log(store.getState());
+console.log(store.getState());
 
 store.subscribe(() => {
   console.log('store updated', store.getState()); 

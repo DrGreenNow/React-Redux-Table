@@ -1,9 +1,10 @@
-import { HANDLEPAGECHANGE, PAGINATED_JSON } from "../actions";
+import { HANDLEPAGECHANGE, PAGINATED_JSON, SEARCH } from "../actions";
 
 const handlePageChangeReducerState = {
   pageSize: 2,
   currentPage: 1,
-  paginatedJson: []
+  paginatedJson: [],
+  searchValue: ""
 };
 
 export default (state = handlePageChangeReducerState, action) => {
@@ -18,7 +19,14 @@ export default (state = handlePageChangeReducerState, action) => {
       return {
         ...state,
         paginatedJson: action.paginatedJson
-      }
+      };
+
+    case SEARCH:
+      return {
+        ...state,
+        searchValue: action.value,
+        currentPage: 1
+      };
 
     default:
       return state;

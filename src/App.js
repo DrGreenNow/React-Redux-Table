@@ -72,7 +72,7 @@ const mapStateToProps = state => ({
   loading: state.loading,
   error: state.error,
   sortColumn: state.ourSort.sortColumn,
-  action: state.ourData.action,
+  action: state.ourPagination.searchValue,
   pageSize: state.ourPagination.pageSize,
   currentPage: state.ourPagination.currentPage
 });
